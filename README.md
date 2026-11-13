@@ -1,7 +1,7 @@
 # Tugas 5 AI: Sistem Pakar Kualitas Air Kolam Lele
 
-**Nama:** (isi nama)  
-**NIM:** (isi NIM)
+**Nama:** (Muhammad izzul islam)  
+**NIM:** (F1D02410077)
 
 ## Topik dan cara menjalankan
 
