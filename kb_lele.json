@@ -1,0 +1,29 @@
+{
+  "judul": "Masalah kualitas air kolam lele",
+  "batas": "Aturan berasal dari artikel jurnal perguruan tinggi tentang budidaya lele di kolam tanah/terpal di Indonesia (merujuk SNI 2014) dan hanya mencakup kekurangan oksigen, masalah amonia akibat limbah pakan, dan pH/suhu di luar kisaran optimal. Hasilnya saran awal, bukan keputusan akhir; untuk kasus serius hubungi penyuluh perikanan atau dinas perikanan setempat.",
+  "sumber": {
+    "S1": "Manajemen Kualitas Air pada Pembenihan Ikan Lele Mutiara (Clarias gariepinus), Sugianti dan Hafiludin, Juvenil, Universitas Trunojoyo Madura (kisaran optimal menurut SNI 2014: pH 6,5-8,5; DO >3 mg/L; suhu 25-30 C; kecerahan 25-35 cm), https://journal.trunojoyo.ac.id/juvenil/article/download/15813/7090, diakses 13 Nov 2026",
+    "S2": "Efektivitas Bakteri Fotosintetik Rhobac dalam Meningkatkan Kualitas Air pada Budidaya Ikan Lele di Kolam Terpal, Haryasakti dkk., Sekolah Tinggi Pertanian Kutai Timur (suhu 25-30 C; pH 6,5-8,5; DO 5 mg/L), https://ojs.stiperkutim.ac.id/index.php/jpt/article/download/610/296, diakses 13 Nov 2026",
+    "S3": "Pengaruh kandungan pakan komersial berbeda terhadap kualitas air budidaya benih ikan lele mutiara (Clarias gariepinus), Jurnal Akuakultur, Universitas Dharmawangsa (pakan protein rendah memicu kenaikan amonia, TDS, dan pH), https://jurnal.dharmawangsa.ac.id/index.php/akuakultur/article/download/7084/pdf, diakses 13 Nov 2026"
+  },
+  "fakta": {
+    "pH kurang dari 6,5": "Apakah pH air kurang dari 6,5?",
+    "pH lebih dari 8,5": "Apakah pH air lebih dari 8,5?",
+    "suhu air di bawah 25°C": "Apakah suhu air di bawah 25°C?",
+    "suhu air di atas 30°C": "Apakah suhu air di atas 30°C?",
+    "oksigen terlarut kurang dari 3 mg/L": "Apakah oksigen terlarut (DO) kurang dari 3 mg/L?",
+    "ikan megap-megap di permukaan": "Apakah ikan megap-megap di permukaan air?",
+    "sisa pakan menumpuk": "Apakah sisa pakan menumpuk di dasar kolam?",
+    "pakan berprotein rendah": "Apakah pakan yang dipakai berprotein rendah?",
+    "amonia terukur tinggi": "Apakah hasil uji amonia (test kit) menunjukkan tinggi?"
+  },
+  "aturan": [
+    {"id": "R1", "jika": ["pH kurang dari 6,5", "pH lebih dari 8,5"], "mode": "atau", "maka": "pH tidak ideal", "sumber": ["S1", "S2"]},
+    {"id": "R2", "jika": ["suhu air di bawah 25°C", "suhu air di atas 30°C"], "mode": "atau", "maka": "suhu tidak ideal", "sumber": ["S1", "S2"]},
+    {"id": "R3", "jika": ["oksigen terlarut kurang dari 3 mg/L"], "mode": "dan", "maka": "oksigen rendah", "sumber": ["S1"]},
+    {"id": "R4", "jika": ["sisa pakan menumpuk", "pakan berprotein rendah"], "mode": "atau", "maka": "amonia berpotensi naik", "sumber": ["S3"]},
+    {"id": "R5", "jika": ["oksigen rendah", "ikan megap-megap di permukaan"], "mode": "dan", "maka": "kekurangan oksigen", "sumber": ["S1"]},
+    {"id": "R6", "jika": ["amonia berpotensi naik", "amonia terukur tinggi"], "mode": "dan", "maka": "masalah amonia akibat limbah pakan", "sumber": ["S3"]},
+    {"id": "R7", "jika": ["pH tidak ideal", "suhu tidak ideal"], "mode": "atau", "maka": "air di luar kisaran optimal", "sumber": ["S1", "S2"]}
+  ]
+}
